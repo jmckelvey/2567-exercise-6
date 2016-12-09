@@ -51,11 +51,16 @@ body {
 	font-weight: 800;
 }
 
+address {
+	font-style: normal;
+}
+
 /*--------------------------------------------------------------
 1.2 - HEADINGS
 -------------------------------------------------------------- */
-h1 {
+body > header p {
     font-size: 5.5rem;
+	font-weight: 900;
     background-color: rgba(255,255,255,.5);
     line-height: 5rem;
     text-align: center;
@@ -84,7 +89,7 @@ form {
 form div {
 	padding: 10px;
 }
-form .col-1 {
+form > div:last-child {
 	padding-right: 2rem !important;
 }
 label {
@@ -128,8 +133,8 @@ form a {
 form a:hover {
 	color: #146c57;
 	background-color: white;
-	
 }
+
 /*--------------------------------------------------------------
 1.5 - LISTS
 -------------------------------------------------------------- */
@@ -139,10 +144,6 @@ form a:hover {
 
 #contact ul > li a {
 	text-decoration: none
-}
-
-#contact ul {
-	padding-left: 0;
 }
 
 #contact ul > li {
@@ -185,6 +186,13 @@ nav a:hover {
 	background-color: rgba(255,255,255,.5);
 }
 
+header nav ul {
+	padding: 0px 35px;
+}
+
+body, form a, #contact .txt-bold > ul > li a, nav a {
+	color: white;
+}
 
 
 /*--------------------------------------------------------------
@@ -192,8 +200,11 @@ nav a:hover {
 -------------------------------------------------------------- */
 *, *:after, *:before {
 	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
 	box-sizing: border-box;
+
 }
 
 .wrapper {
@@ -219,14 +230,26 @@ figure {
 	margin-right: 20px;
 }
 
+.flex {
+	-webkit-display: flex;
+	-moz-display: flex;
+	-ms-display: flex;
+	-o-display: flex;
+	display: flex;
+	overflow: hidden;
+}
+
+.flex [class*='col-'] {
+	flex: 1;
+}
+
 [class*="col-"] {
 	float: left;
 	padding: 0 2rem 2rem 0;
 }
 
 [class*="col-"]:last-of-type {
-	float: left;
-	padding-right: 0;
+	padding-right: 0px;
 }
 
 /*--------------------------------------------------------------
@@ -363,9 +386,9 @@ figure {
 /*-- Services -- */
 #services section div {
 	background-color: #1c7897;
-	padding: 20px 10px;
+	padding: 20px 20px 35px 20px;
+	height: 100%;
 }
-
 
 
 /*--------------------------------------------------------------
@@ -408,10 +431,6 @@ figure {
 	text-align: center;
 }
 
-body, form a, #contact .txt-bold > ul > li a, nav a {
-	color: white;
-}
-
 /*--------------------------------------------------------------
 5.3 - SPACING
 -------------------------------------------------------------- */
@@ -431,15 +450,28 @@ body, form a, #contact .txt-bold > ul > li a, nav a {
 	padding-bottom: 100px;
 }
 .m-t-0 {
-	margin-top: 0;
+	margin-top: 0px;
 }
 .m-b-lg {
 	margin-bottom: 50px;
 }
 
-.cntr-sm {
+#cntr-sm {
 	padding-bottom: 0px;
 }
+
+.p-rt-0 {
+	padding-right: 0px;
+}
+
+.p-lft-0 {
+	padding-left: 0px;
+}
+
+#contact ul, form > div:last-child {
+	padding-left: 0px;
+}
+
 /*--------------------------------------------------------------
 5.4 - ALIGNMENTS
 -------------------------------------------------------------- */
@@ -474,12 +506,10 @@ body, form a, #contact .txt-bold > ul > li a, nav a {
 		width: 100%;
 	}
 	
-	.push-right {
-		margin: 0 auto;
-		float: none !important;
-		text-align: center;
+	.col-1-6 {
+		padding: 30px !important;
 	}
-
+	
 	nav li  {
 		padding-top: 20px;
 	}
@@ -494,17 +524,24 @@ body, form a, #contact .txt-bold > ul > li a, nav a {
 	
 	.resize-sm {
 		width: 50%;
-		margin: 0 auto ;
 	}
 	
 	#lft-list {
 		padding-left: 25%;
 	}
 		
-	.cntr-sm {
+	#cntr-sm, .resize-sm, .push-right {
 		margin: 0 auto;
+	}
+	
+	#cntr-sm, .push-right {
 		float: none !important;
 		text-align: center;
 	}
+	
+	.flex {
+		display: block;
+	}
+
 
 }
